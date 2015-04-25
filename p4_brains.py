@@ -47,13 +47,29 @@ class SlugBrain:
 
   def __init__(self, body):
     self.body = body
+    self.state = 'idle'
 
 
   def handle_event(self, message, details):
     # TODO: IMPLEMENT THIS METHOD
     #  (Use helper methods and classes to keep your code organized where
     #  approprioate.)
-    pass    
+    if message is 'order':
+        if type(details) is type('a'):  # The slug is receiving a state-change command
+            if details is 'i':
+                self.state = 'idle'
+            elif details is 'a':
+                self.state = 'attack'
+            elif details is 'h':
+                self.state = 'harvest'
+            elif details is 'b':
+                self.state = 'build'
+        else:   # Assume it's a tuple (The slug is receiving a command to go somewhere
+            x, y = details
+    elif message is 'timer':
+        pass
+    elif message is 'collide':
+        pass   
 
 world_specification = {
   'worldgen_seed': 13, # comment-out to randomize
