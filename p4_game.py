@@ -528,6 +528,7 @@ master.bind('<Double-Button-1>', left_button_double)
 master.bind('<B1-Motion>', left_button_move)
 master.bind('<ButtonRelease-1>', left_button_up)
 master.bind('<ButtonPress-2>', right_button_down)
+master.bind('<ButtonPress-3>', right_button_down)
 master.bind('<Key>', key_down)
 master.bind('<Escape>', lambda event: master.quit())
 
